@@ -6,6 +6,7 @@ import userRouter from "./routes/userRoute.js";
 import foodRouter from "./routes/foodRoute.js";
 import orderRouter from "./routes/orderRoute.js";
 import cartRouter from "./routes/cartRoute.js";
+import adminRouter from "./routes/adminRoute.js";
 
 //app config
 const app = express();
@@ -22,7 +23,9 @@ connectDB();
 app.use("/api/users", userRouter);
 app.use("/api/food", foodRouter);
 app.use("/api/order", orderRouter);
+app.use("/images", express.static("uploads"));
 app.use("/api/cart", cartRouter);
+app.use("/api/admin", adminRouter);
 
 app.get("/", (req, res) => {
   res.send("API WORKING");
