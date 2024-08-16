@@ -5,6 +5,7 @@ import { connectDB } from "./config/db.js";
 import userRouter from "./routes/userRoute.js";
 import foodRouter from "./routes/foodRoute.js";
 import orderRouter from "./routes/orderRoute.js";
+import cartRouter from "./routes/cartRoute.js";
 
 //app config
 const app = express();
@@ -21,6 +22,7 @@ connectDB();
 app.use("/api/users", userRouter);
 app.use("/api/food", foodRouter);
 app.use("/api/order", orderRouter);
+app.use("/api/cart", cartRouter);
 
 app.get("/", (req, res) => {
   res.send("API WORKING");
